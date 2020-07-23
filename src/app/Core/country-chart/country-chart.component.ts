@@ -26,7 +26,7 @@ export class CountryChartComponent implements OnInit {
   constructor(private covidService : Covid19Service,
              private http: HttpClient) { }
 
-  url : any ="http://api.coronastatistics.live/countries";
+  url : any ="https://api.coronastatistics.live/countries";
   coutry : Country[];
   countryName = [];
   totalCases = [];
