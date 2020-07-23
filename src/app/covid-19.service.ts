@@ -9,11 +9,11 @@ export class Covid19Service {
   constructor(private http: HttpClient) {}
 
   getAllWorldwideCoviedData(): Observable<Country> {
-    return this.http.get<Country>(`http://api.coronastatistics.live/all`);
+    return this.http.get<Country>(`https://api.coronastatistics.live/all`);
   }
 
   getAllCountryData():Observable<any[]>{
-     return this.http.get<any[]>(`http://api.coronastatistics.live/countries`);
+     return this.http.get<any[]>(`https://api.coronastatistics.live/countries`);
   }
 
   getAllCovidDataByCountry(name: string): Observable<any> {
