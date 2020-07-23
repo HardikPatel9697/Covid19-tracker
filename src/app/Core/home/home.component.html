@@ -1,0 +1,87 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<div class="container">
+  <div class="row mt-5 p-5">
+    <div class="col col-xs-3 col-md-3 mt-1">
+      <div class="card text-center" style="border-radius: 5px; border-color: darkblue; background-image: url(./../../../assets/images/preview.png); position: relative; color: darkblue; border-width: thin; border: 2px solid;">
+        <div class="card-title text-white m-2 p-1" style="font-weight: bold; ">
+          Infectionas
+          <hr style="height: 3px; background-color:darkblue; margin-top: 5px; margin-bottom: 5px;">
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <!-- <div class="col col-xs-2 col-md-2" >
+              <i class="fa fa-crosshairs" aria-hidden="true"
+                 style="font-size:1.5em; color:  white;"></i>
+            </div> -->
+            <div class="col col-xs-12 col-md-12 m-1 text-center text-white"style="margin-top: -20px; font-weight: bold;">
+              {{ countryData?.cases }} Total<br>
+              <div class="text-center text-info" *ngIf="count" style="opacity: 100.2; font-weight: bold;">{{ count }} Today</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col col-xs-3 col-md-3 mt-1">
+      <div class="card text-center" style="border-radius: 5px; color: darkred; background-image: url(./../../../assets/images/preview.png); position: relative; border-color: darkred; border-width: thin; border: 2px solid;">
+        <div class="card-title text-white  m-2 p-1" style="font-weight: bold;">
+          Deaths
+          <hr style="height: 3px; background-color: darkred; margin-top: 5px; margin-bottom: 5px;">
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <!-- <div class="col col-xs-2 col-md-2" >
+              <i class="fa fa-snowflake-o" aria-hidden="true"
+                 style="font-size:1.5em; color:  white;"></i>
+            </div> -->
+            <div class="col col-xs-12 col-md-12 m-1 text-center text-white" style="margin-top: -20px; font-weight: bold;">
+              {{ countryData?.deaths }} Total<br>
+              <div class="text-center text-danger" *ngIf="todayDeaths" style="opacity: 100.2; font-weight: bold;" >{{ todayDeaths }} Today</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col col-xs-3 col-md-3 mt-1">
+      <div class="card text-center" style="border-radius: 5px; color: darkgreen; background-image: url(./../../../assets/images/preview.png); position: relative; border-color: darkgreen; border-width: thin; border: 2px solid;">
+        <div class="card-title text-white m-2 p-1" style="font-weight: bold;">
+          Recovers
+          <hr style="height: 3px; background-color: darkgreen; margin-top: 5px; margin-bottom: 5px;">
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <!-- <div class="col col-xs-2 col-md-2" >
+             <i class="fa fa-recycle" aria-hidden="true"
+               style="font-size:1.5em; color:  white;"></i>
+            </div> -->
+            <div class="col col-xs-12 col-md-12 m-1 text-white text-center" style="margin-top: -20px; font-weight: bold;">
+            {{ countryData?.recovered }} Total<br>
+            <div class="text-center text-success" *ngIf="todayRecovered" style="opacity: 100.2; font-weight: bold;">{{ todayRecovered }} Today</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col col-xs-3 col-md-3 mt-1">
+      <div class="card text-center" style="border-radius: 5px; color: darkgoldenrod; background-image: url(./../../../assets/images/preview.png); position: relative; border-color: darkgoldenrod; border-width: thin; border: 2px solid;">
+        <div class="card-title text-white m-2 p-1" style="font-weight: bold;">
+          Critical
+          <hr style="height: 3px; background-color: darkgoldenrod; margin-top: 5px; margin-bottom: 5px;">
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <!-- <div class="col col-xs-2 col-sm-2" >
+              <i class="fa fa-codiepie" aria-hidden="true"
+                 style="font-size:1.5em; color:  white;"></i>
+            </div> -->
+            <div class="col col-xs-12 col-md-12 m-1 text-center text-white" style="font-weight: bold;">
+               {{ critical }} Total<br>
+               <div class="text-center text-warning" *ngIf="criticalPerMillion" style="opacity: 100.2; font-weight: bold;">{{ criticalPerMillion }} Per People</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

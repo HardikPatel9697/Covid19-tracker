@@ -1,0 +1,256 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<div class="container-fluid">
+  <div class="row m-1 p-2">
+    <div class="col col-xs-12 col-md-6">
+      <div class="card" style="background-color:  rgb(51, 58, 69) ; position: initial;">
+        <div class="card-heder m-2 p-3 text-white">
+          <div>
+          <div class="text-left col-xs-10 align-items-center">
+           <!-- <i class="text-center p-5 col-xs-2" style="color:
+            rgba(2,254,40,1); opacity: 100.2; font-weight: bold;">{{ staicticsWorld | uppercase }}</i>-->
+            <div class="text-center col-xs-3" style="color:
+            rgba(2,254,40,1); opacity: 100.2; font-weight: bold;">{{ staicticsWorld | uppercase }}</div>
+            <div class="text-center col-xs-3" style="font-weight: bold;">Affacted Countries</div>
+          </div>
+          <div class="card-body">
+            <!--<input type="text" placeholder="Search Country" style="border: 1px solid white;
+               background-image: url(./../../../assets/images/preview.png); position: relative;
+               color: white;" class="form-control" (keyup)="getEnterCountryData($event.target.value)">-->
+            <div class="m-1">
+              <div class="table-responsive"  style="height: 50vh; width: auto; overflow-x: auto; overflow-y: auto;">
+                <table class="table col-xs-10">
+                  <thead>
+                    <tr class="m-2 ml-2 p-2">
+                      <th class="text-white" style="font-weight: bold;">Country</th>
+                      <th class="text-info" style="font-weight: bold;">Confirmed</th>
+                      <th class="text-success" style="font-weight: bold;">Recovered</th>
+                      <th class="text-danger" style="font-weight: bold;">Deaths</th>
+                      <th class="text-warning" style="font-weight: bold;">Active</th>
+                    </tr>
+                    <tr *ngFor="let item of allCountryDataList; index as i">
+                        <td class="text-white">{{ item.country}}</td>
+                        <td class="text-info">{{ item.cases }}</td>
+                        <td class="text-success">{{ item.recovered }}</td>
+                        <td class="text-danger">{{ item.deaths }}</td>
+                        <td class="text-warning">{{ item.active }}</td>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+
+    <div class="col col-xs-10 col-md-6 mt-1">
+      <div class="card" style="background-color:  rgb(51, 58, 69) ; position: relative;">
+        <div class="card-heder m-2 p-3 text-white">
+          <div>
+            <div class="text-left col-xs-10 align-items-center">
+              <!-- <i class="text-center p-5 col-xs-2" style="color:
+               rgba(2,254,40,1); opacity: 100.2; font-weight: bold;">{{ staicticsWorld | uppercase }}</i>-->
+               <div class="text-center col-xs-3" style="color:
+               rgba(2,254,40,1); opacity: 100.2; font-weight: bold;">{{ staictics | uppercase }}</div>
+               <div class="text-center col-xs-3" style="font-weight: bold;">Affacted State</div>
+             </div>
+          <!-- <i class="text-left col-xs-10 d-flex align-items-center">Affacted States
+              <i  class="text-center p-5" style="margin-left: 30px; color:
+                 rgba(2,254,40,1); opacity: 100.2; font-weight: bold;">{{ staictics | uppercase }}</i>
+                 <i class="text-right">Today's Statistics</i>
+              </i> -->
+
+          <div class="card-body">
+            <!--<input type="text" placeholder="Search State" style="border: 1px solid white;
+               background-image: url(./../../../assets/images/preview.png); position: relative;
+                color: white;" class="form-control" (change)="getEnterStateData($event.target.value)">-->
+            <div class="m-1">
+              <div class="table-responsive"  style="height: 50vh; width: auto; overflow-x: auto; overflow-y: auto;">
+                <table class="table col-xs-10">
+                  <thead>
+                    <tr class="m-2 ml-2 p-2">
+                      <th class="text-white" style="font-weight: bold;">State</th>
+                      <th class="text-info" style="font-weight: bold;">Confirmed</th>
+                      <th class="text-success" style="font-weight: bold;">Recovered</th>
+                      <th class="text-danger" style="font-weight: bold;">Deaths</th>
+                      <th class="text-warning" style="font-weight: bold;">Active</th>
+                      <th class="text-white" style="font-weight: bold;">AffactedCity</th>
+                    </tr>
+                    <tr *ngFor="let item of allIndiaStateDataList; index as i">
+                        <td class="text-white">{{ item.state}}</td>
+                        <td class="text-info">{{ item.confirmed }}</td>
+                        <td class="text-success">{{ item.recovered }}</td>
+                        <td class="text-danger">{{ item.deaths }}</td>
+                        <td class="text-warning">{{ item.active }}</td>
+                        <td *ngIf="item.confirmed !== 0 "><a style=" border:2px solid; border-color: red; color: white;" class="btn btn-default" data-toggle="modal" href='#modal-id'
+                         (click)="getCityData(item.districtData, item.state)">Get</a></td>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+       <div class="col col-xs-10 col-md-10">
+        <div class="modal fade" id="modal-id">
+          <div class="modal-dialog model-lg">
+            <div class="modal-content">
+              <div class="col-xs-10 align-items-center">
+                <h4 class="text-center col-xs-3" style="color: darkred; opacity: 100.2; font-weight: bold;">AFFACTED CITY</h4><br>
+                <h4 class="text-center col-xs-3"  style="color:
+                rgba(2,254,40,1); opacity: 100.2; font-weight: bold;">{{ indianStateName | uppercase}}</h4>
+              </div>
+              <div class="modal-body" style="width: auto; overflow: auto;">
+                <div class="m-1">
+                  <div class="table-responsive"  style="height: 50vh; overflow-x: auto; overflow-y: auto;">
+                    <table class="table col-xs-8">
+                      <thead>
+                        <tr>
+                        <th  class="text-info text-center" style="font-weight: bold;">Name</th>
+                        <th  class="text-danger text-center" style="font-weight: bold;">Confirmed</th>
+                        <!-- <th class="text-success" style="font-weight: bold;">Recovred</th>
+                        <th class="text-danger" style="font-weight: bold;">Deaths</th> -->
+                        </tr>
+                      </thead>
+                      <tr *ngFor="let item of allIndiaCityDataList">
+                        <td class="text-info text-center">{{ item.name }}</td>
+                        <td class="text-danger text-center">{{ item.confirmed }}</td>
+                        <!-- <td class="text-success">{{ item.recovered }}</td>
+                        <td class="text-danger">{{ item.deaths }}</td> -->
+                      </tr>
+                    </table>
+                   </div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+       </div>
+  </div>
+
+
+  <!-- <p class="d-flex mt-2 text-left justify-content-between align-items-center overflow-auto" *ngFor="let item of allIndiaStateDataList;">
+                {{ item.state }}<br>
+                {{ item.confirmed }} {{ item.deaths }}
+                <span style="color: rgba(1,6,252,1); opacity: 100.2; font-weight: bold;"><span *ngIf="item.cChanges !== 0 ">+ {{  item.cChanges}} Cases</span>
+                          <br>
+                       <p style="color:  rgba(254,2,2,1); opacity: 100.2; font-weight: bold;">
+                        <span *ngIf="item.dChanges !== 0">+  {{ item.dChanges}}  Deaths </span>
+                        <br>
+                        <span style="color:  rgba(2,254,40,1); opacity: 100.2; font-weight: bold;" *ngIf="item.rChanges !== 0">{{ item.rChanges }} Recovers</span>
+                        </p>
+
+                </span>
+              </p> -->
+
+ <!-- <p class="d-flex mt-4 text-left justify-content-between align-items-center overflow-auto" *ngFor="let item of allCountryDataList">
+                {{ item.country }}<br>
+                {{ item.cases }}  {{ item.deaths }}
+                <span style="color: rgba(1,6,252,1); opacity: 100.2; font-weight: bold;"><span *ngIf="item.todayCases !== null">+ {{  item.todayCases}} Cases</span>
+                          <br>
+                       <p style="color:  rgba(254,2,2,1); opacity: 100.2; font-weight: bold;">
+                        <span *ngIf="item.todayDeaths !== null">+  {{ item.todayDeaths}}  Deaths </span>
+                        <br>
+                        <span style="color:  rgba(2,254,40,1); opacity: 100.2; font-weight: bold;" *ngIf="item.todayRecovered !== null">{{ item.todayRecovered }} Recovers</span>
+                        </p>
+
+                </span>
+              </p> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div style="border-radius: 5px; margin-left: 25px; margin-right: 25px;">
+  <div class="row p-5 background" style="border-radius: 7px;">
+      <div class="col col-md-12">
+        <div class="col-md-4 text-center">
+          <div class="btn-group text-center" style="margin-top: -30px; margin-bottom: 10px;">
+            <select class="form-control text-center" style="background-color: bisque;" (change)="onSelectChangeCountry($event.target.value)">
+              <option *ngFor="let item of countryList" [value]="item.name">{{ item.name }}</option>
+            </select>
+            <button class="btn btn-dark" (click)="getCovidCountryData()" style="background-color: darkgreen; border-color: darkgreen;">Search</button>
+          </div>
+        </div>
+       <div class="table-responsive">
+         <table class="table table-dark" *ngIf="isLoading">
+           <thead>
+             <tr class="text-center">
+               <th>Updated</th>
+               <th>Cases</th>
+               <th>TodayCases</th>
+               <th>Deaths</th>
+               <th>TodayDeaths</th>
+               <th>Recovered</th>
+               <th>TodayRecovered</th>
+               <th>Active</th>
+               <th>Tests</th>
+               <th>Population</th>
+               <th>Continent</th>
+             </tr>
+           </thead>
+           <tr class="text-center">
+             <td>{{ countrylistData.updated }}</td>
+             <td>{{ countrylistData.cases }}</td>
+             <td>{{ countrylistData.todayCases }}
+              <span *ngIf="countrylistData.todayCases === null">
+                -
+              </span>
+             </td>
+             <td>{{ countrylistData.deaths }}</td>
+             <td>
+               {{ countrylistData.todayDeaths }}
+               <span *ngIf="countrylistData.todayDeaths === null">
+                     -
+               </span>
+              </td>
+             <td>{{ countrylistData.recovered }}</td>
+             <td>{{ countrylistData.todayRecovered }}
+              <span *ngIf="countrylistData.todayRecovered === null">
+                -
+              </span>
+             </td>
+             <td>{{ countrylistData.active }}</td>
+             <td>{{ countrylistData.tests }}</td>
+             <td>{{ countrylistData.population }}</td>
+             <td>{{ countrylistData.continent }}</td>
+           </tr>
+         </table>
+       </div>
+    </div>
+  </div>
+</div> -->
