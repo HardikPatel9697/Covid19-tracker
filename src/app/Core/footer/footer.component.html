@@ -3,18 +3,14 @@
 </head>
 <div class="container-fluid">
   <div class="row m-1 p-2">
-    <div class="col col-xs-12 col-md-6">
-      <div class="card" style="background-color:  rgb(51, 58, 69) ; position: initial;">
-        <div class="card-heder m-2 p-3 text-white">
-          <div>
+    <div class="col col-xs-12 col-md-6" style="background-color:  rgb(51, 58, 69) ; position: initial;">
           <div class="text-left col-xs-10 align-items-center">
            <!-- <i class="text-center p-5 col-xs-2" style="color:
             rgba(2,254,40,1); opacity: 100.2; font-weight: bold;">{{ staicticsWorld | uppercase }}</i>-->
             <div class="text-center col-xs-3" style="color:
             rgba(2,254,40,1); opacity: 100.2; font-weight: bold;">{{ staicticsWorld | uppercase }}</div>
-            <div class="text-center col-xs-3" style="font-weight: bold;">Affacted Countries</div>
+            <div class="text-center col-xs-3 text-white" style="font-weight: bold;">Affacted Countries</div>
           </div>
-          <div class="card-body">
             <!--<input type="text" placeholder="Search Country" style="border: 1px solid white;
                background-image: url(./../../../assets/images/preview.png); position: relative;
                color: white;" class="form-control" (keyup)="getEnterCountryData($event.target.value)">-->
@@ -38,24 +34,18 @@
                     </tr>
                   </thead>
                 </table>
-              </div>
+             </div>
             </div>
-          </div>
-        </div>
-      </div>
-      </div>
-      </div>
+    </div>
 
-    <div class="col col-xs-10 col-md-6 mt-1">
-      <div class="card" style="background-color:  rgb(51, 58, 69) ; position: relative;">
-        <div class="card-heder m-2 p-3 text-white">
-          <div>
+
+    <div class="col col-xs-10 col-md-6 mt-2"  style="background-color:  rgb(51, 58, 69) ; position: relative;">
             <div class="text-left col-xs-10 align-items-center">
               <!-- <i class="text-center p-5 col-xs-2" style="color:
                rgba(2,254,40,1); opacity: 100.2; font-weight: bold;">{{ staicticsWorld | uppercase }}</i>-->
                <div class="text-center col-xs-3" style="color:
                rgba(2,254,40,1); opacity: 100.2; font-weight: bold;">{{ staictics | uppercase }}</div>
-               <div class="text-center col-xs-3" style="font-weight: bold;">Affacted State</div>
+               <div class="text-center col-xs-3 text-white" style="font-weight: bold;">Affacted State</div>
              </div>
           <!-- <i class="text-left col-xs-10 d-flex align-items-center">Affacted States
               <i  class="text-center p-5" style="margin-left: 30px; color:
@@ -63,7 +53,6 @@
                  <i class="text-right">Today's Statistics</i>
               </i> -->
 
-          <div class="card-body">
             <!--<input type="text" placeholder="Search State" style="border: 1px solid white;
                background-image: url(./../../../assets/images/preview.png); position: relative;
                 color: white;" class="form-control" (change)="getEnterStateData($event.target.value)">-->
@@ -86,13 +75,11 @@
                         <td class="text-danger">{{ item.deaths }}</td>
                         <td class="text-warning">{{ item.active }}</td>
                         <td *ngIf="item.confirmed !== 0 "><a style=" border:2px solid; border-color: red; color: white;" class="btn btn-default" data-toggle="modal" href='#modal-id'
-                         (click)="getCityData(item.districtData, item.state)">Get</a></td>
+                         (click)="getCityData(item.districtData, item.state)">View</a></td>
                     </tr>
                   </thead>
                 </table>
               </div>
-            </div>
-          </div>
         </div>
       </div>
   </div>
@@ -105,7 +92,7 @@
           <div class="modal-dialog model-lg">
             <div class="modal-content">
               <div class="col-xs-10 align-items-center">
-                <h4 class="text-center col-xs-3" style="color: darkred; opacity: 100.2; font-weight: bold;">AFFACTED CITY</h4><br>
+                <h4 class="text-center col-xs-3" style="color: red; opacity: 100.2; font-weight: bold;">AFFACTED CITY</h4><br>
                 <h4 class="text-center col-xs-3"  style="color:
                 rgba(2,254,40,1); opacity: 100.2; font-weight: bold;">{{ indianStateName | uppercase}}</h4>
               </div>

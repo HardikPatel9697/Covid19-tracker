@@ -19,7 +19,7 @@ export class FooterComponent implements OnInit {
   countryListData : any[];
   countrylistData : any;
   allCountryData : Observable<any[]>;
-  allCountryDataList : any;
+  allCountryDataList : any[] = [];
   searchCountryName : string;
   searchStateName : string;
   searchCountryData : Observable<any>;
@@ -59,7 +59,7 @@ export class FooterComponent implements OnInit {
 
  getAllCountryData(){
    this.allCountryData = this.covidService.getAllCountryData();
-   this.allCountryData.subscribe(data =>{
+   this.allCountryData.subscribe((data) =>{
      this.allCountryDataList = data;
    })
  }
