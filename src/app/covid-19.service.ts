@@ -1,6 +1,6 @@
 import { Country } from "./country.model";
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Observable } from "rxjs";
 @Injectable({
   providedIn: "root",
@@ -26,9 +26,17 @@ export class Covid19Service {
     return this.http.get<any[]>(`https://restcountries.eu/rest/v2/all`);
   }
 
-  getIndiAllStateData():Observable<any[]>{
-    return this.http.get<any[]>(`https://api.covidindiatracker.com/state_data.json`);
+  getIndiAllDistrictData():Observable<any[]>{
+    //let stateName = new HttpParams().set('state', searchStateName);
+    return this.http.get<any[]>(`https://api.covid19india.org/v2/state_district_wise.json`);
   }
 
+  // getIndiAllStateData():Observable<any[]>{
+  //   return this.http.get<any[]>(`https://api.rootnet.in/covid19-in/unofficial/covid19india.org/statewise`);
+  // }
+
+getIndiAllStateData():Observable<any[]>{
+    return this.http.get<any[]>(`https://api.covidindiatracker.com/state_data.json`);
+  }
 
 }

@@ -75,7 +75,7 @@
                         <td class="text-danger">{{ item.deaths }}</td>
                         <td class="text-warning">{{ item.active }}</td>
                         <td *ngIf="item.confirmed !== 0 "><a style=" border:2px solid; border-color: red; color: white;" class="btn btn-default" data-toggle="modal" href='#modal-id'
-                         (click)="getCityData(item.districtData, item.state)">View</a></td>
+                         (click)="getCityData(item.state)">View</a></td>
                     </tr>
                   </thead>
                 </table>
@@ -102,17 +102,19 @@
                     <table class="table col-xs-8">
                       <thead>
                         <tr>
-                        <th  class="text-info text-center" style="font-weight: bold;">Name</th>
-                        <th  class="text-danger text-center" style="font-weight: bold;">Confirmed</th>
-                        <!-- <th class="text-success" style="font-weight: bold;">Recovred</th>
-                        <th class="text-danger" style="font-weight: bold;">Deaths</th> -->
+                        <th  class="text-dark" style="font-weight: bold;">Name</th>
+                        <th  class="text-info" style="font-weight: bold;">Confirmed</th>
+                        <th class="text-success" style="font-weight: bold;">Recovred</th>
+                        <th class="text-danger" style="font-weight: bold;">Deaths</th>
+                        <th class="text-warning "  style="font-weight: bold;">Active</th>
                         </tr>
                       </thead>
                       <tr *ngFor="let item of allIndiaCityDataList">
-                        <td class="text-info text-center">{{ item.name }}</td>
-                        <td class="text-danger text-center">{{ item.confirmed }}</td>
-                        <!-- <td class="text-success">{{ item.recovered }}</td>
-                        <td class="text-danger">{{ item.deaths }}</td> -->
+                        <td class="text-dark">{{ item.district }}</td>
+                        <td class="text-info">{{ item.confirmed }}</td>
+                        <td class="text-success">{{ item.recovered }}</td>
+                        <td class="text-danger">{{ item.deceased }}</td>
+                        <td class="text-warning">{{ item.active }}</td>
                       </tr>
                     </table>
                    </div>
